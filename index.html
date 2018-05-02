@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>観光案内</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0">
+    <!--Main CSS-->
+    <link rel="stylesheet" href="./css/app.min.css">
+    <!--Materialize(CSS)-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Materialize(JS)-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+</head>
+<body class="index">
+<div class="wrap">
+    <!-- Side -->
+    <aside class="spot-info">
+        <!--Spot Image-->
+        <section class="image"></section>
+        <!--Spot Name-->
+        <section class="name">
+            <h1>&nbsp;</h1>
+        </section>
+        <!--Buttons-->
+        <section class="bnt-box">
+            <button class="waves-effect waves-light btn map" type="button">
+                <i class="material-icons left">map</i>MAP
+            </button>
+            <button class="waves-effect waves-light btn access" type="button">
+                <i class="material-icons left">room</i>ACCESS
+            </button>
+        </section>
+        <!--Spot Description-->
+        <section class="description">
+            <p>&nbsp;</p>
+        </section>
+    </aside>
+
+    <!-- Main -->
+    <main>
+        <div id="map"></div>
+    </main>
+</div>
+
+<script>
+    // サーバーの有無で読み込むスクリプトを変える
+  (() => {
+    let url = "./js/app.bundle.js";
+    let type = null;
+
+    // location.hostname = サーバー無なら空文字
+    if (location.hostname){
+        url = "./js/app.js";
+        type = "module";
+    }
+
+    let script = document.createElement('script');
+    script.src = url;
+    if(type){
+      script.type = type;
+    }
+    document.body.appendChild(script);
+  })();
+</script>
+</body>
+</html>

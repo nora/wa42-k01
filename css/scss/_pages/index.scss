@@ -1,0 +1,65 @@
+@mixin section(){
+  border-bottom: 1px solid #eee;
+  padding: 1.3rem 0;
+}
+
+body.index{
+  .wrap {
+    height: 100%;
+    display: flex;
+  }
+
+  // Side information
+  aside.spot-info {
+    width: 30%;
+    z-index: 1;
+    min-width: 330px;
+    max-width: 400px;
+    border-right: 1px solid #ddd;
+    box-shadow: 8px 0 8px -1px rgba(0, 0, 0, 0.16);
+    section{
+      &.name{
+        h1{
+          padding: 2rem;
+          margin: 0!important;
+
+          background-color: #26a69a;
+          color: white;
+          font-size: 1.3rem;
+        }
+      }
+      &.image{
+        height: 245px;
+        background: #eee;
+        img{
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+      &.bnt-box{
+        @include section;
+        display: flex;
+        justify-content:space-around;
+      }
+      &.description{
+        @include section;
+        line-height: 1.4;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+    }
+  }
+
+  // Main
+  main {
+    height: 100%;
+    width: 100%;
+    // Map
+    #map {
+      margin: 0 auto;
+
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
